@@ -1,27 +1,28 @@
 package com.dd.heros;
-import com.dd.attack.Weapon;
-import com.dd.attack.Spell;
+// import com.dd.attack.Weapon;
+// import com.dd.attack.Spell;
 
 public class Hero {
     private String name;
     private int hp;
     private int damages;
-    private String attack;
+    // private String attack;
 
     public Hero(){
-        Weapon attack = new Weapon();
-        this.name = "Toto";
+        this.name = "Default";
         this.hp = 5;
         this.damages = 10;
-        this.attack = attack.getName();
     }
 
     public Hero(String name, int hp, int damages){
-        Spell attack = new Spell();
         this.name = name;
         this.hp = hp;
         this.damages = damages;
-        this.attack = attack.getName();
+    }
+
+    public String setName(String name){
+        this.name = name;
+        return this.name;
     }
 
     public String getName(){
@@ -37,6 +38,8 @@ public class Hero {
     }
 
     public String getPerso(){
-        return "Mon perso : " + this.name + " " + this.hp + " " + this.damages + " " + this.attack;
+        String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";
+        rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : " + this.damages/* + " " + this.attack*/;
+        return rtn += "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
 }
