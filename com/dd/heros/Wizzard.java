@@ -14,8 +14,4 @@ public class Wizzard extends Hero {
     public Wizzard(String name, int hp, int damages){
         super(name, hp, damages);
     };
-
-    // public String getPerso(){
-    //     return "Mon perso : " + this.name + " " + this.hp + " " + this.damages + " " + this.attack;
-    // };
 }
