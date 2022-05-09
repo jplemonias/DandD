@@ -1,17 +1,17 @@
 package com.dd.heros;
 // import com.dd.attack.Weapon;
 
-public class Warrior extends Hero {
+public class Myers extends Hero {
 
-    public Warrior(){
+    public Myers(){
         super("Default", 5, 5);
     };
 
-    public Warrior(String name){
+    public Myers(String name){
         super(name, 5, 6);
     };
 
-    public Warrior(String name, int hp, int damages){
+    public Myers(String name, int hp, int damages){
         super(name, hp, damages);
     };
 }

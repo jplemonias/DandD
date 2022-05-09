@@ -1,40 +1,42 @@
 package com.dd.game;
+
+import com.dd.attack.*;
 import com.dd.heros.*;
 
 import java.util.Random;
 
 public class Game {
     String player;
-    String perso;
+    String typePerso;
     Hero hero;
+    // BoardGame board;
 
     public Game(){
         this.player = "";
-        this.perso = "";
+        this.typePerso = "";
         this.hero = null;
+        // this.board = null;
     }
 
-    public String setNewUserName(String name) {
+    public void setNewUserName(String name) {
         this.player = name;
-        return this.player;
     }
 
-    public Hero setNewHeroName(String name) {
+    public void setNewHeroName(String name) {
         this.hero.setName(name);
-        return this.hero;
     }
 
     public String getUserName() {
         return this.player;
     }
-    public String getNewUserperso(String perso) {
-        this.perso = perso;
-        return this.perso;
-    }
 
     public String getHero(){
-        return  this.hero.getPerso();
+        return this.hero.getPerso();
     }
+
+    public String getTypePerso(){ return this.typePerso; }
+
+    public String getHeroStuffed(){ return this.hero.getPersoStuffed(); }
 
 
     public void creatPerso(String userPseudo, String typePerso) {
@@ -48,15 +50,39 @@ public class Game {
 
 
         if ( typePerso.equals("1") ) {
-            this.hero = new Warrior(userPseudo, nb1, nb1);
+            this.typePerso = "1";
+            this.hero = new Myers(userPseudo, nb1, nb1);
         } else {
-            this.hero = new Wizzard(userPseudo, nb2, nb3);
-
+            this.typePerso = "2";
+            this.hero = new Voorhees(userPseudo, nb2, nb3);
         }
     }
 
-    public void startGame () {
-        BoardGame board = new BoardGame();
-        board.creatBoardGame();
+    public void setWeapon(String weapon, String type){
+        Weapon attack = null;
+        switch (type) {
+            case "1":
+                switch (weapon) {
+                    case "1":
+                        attack = new KitchenKnife("kitchen knife", 5);
+                        break;
+                    case "2":
+                        attack = new BaseballBat("baseball bat", 3);
+                        break;
+                }
+                break;
+            case "2":
+                switch (weapon) {
+                    case "1":
+                        attack = new ChainSaw("chain saw", 7);
+                        break;
+                    case "2":
+                        attack = new Axe("axe", 2);
+                        break;
+                }
+                break;
+        }
+        this.hero.setWeapon(attack);
+        System.out.println(this.hero.getWeapon());
     }
 }

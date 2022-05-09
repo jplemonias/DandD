@@ -32,7 +32,7 @@ public class Menu {
     }
 
     public void heroChoice() {
-        System.out.println("Tu veux play ? \n1 - Wawa\nDmg : 5-15 HP : 5-15\nAttack :\nSword +5\nMace +3\n\n2 - Mago\nDmg : 3-6 HP : 8-15\nAttack :\nSpell Fire +7\nSpell Flash +2");
+        System.out.println("Tu veux play ? \n1 - Michael Myers\nDmg : 5-15 HP : 5-15\nAttack :\nun couteau de cuisine +5\nune batte de baseball +3\n\n2 - Jason Voorhess\nDmg : 3-6 HP : 8-15\nAttack :\nune tronçonneuse +7\nune hache +2");
         choice = sc.nextLine();
         switch (choice){
             case "1":
@@ -55,6 +55,20 @@ public class Menu {
         this.clearConsole();
     }
 
+    public void weaponChoice() {
+        System.out.println("Quel arme veux-tu utiliser ?");
+        if ( this.game.getTypePerso().equals("1") ) {
+            System.out.println("1 - un couteau de cuisine\nDmg : +5\n\n2 - une batte de baseball\nDmg : +3");
+        } else if ( this.game.getTypePerso().equals("2") ) {
+            System.out.println("1 - une tronçonneuse\nDmg : +7\n\n2 - une hache\nDmg : +2");
+        } else {
+            System.out.println("Choix incorrect");
+            weaponChoice();
+        }
+        this.game.setWeapon(sc.nextLine(), this.game.getTypePerso());
+        this.menuPrincipal();
+    }
+
     public void confirmChoice() {
         while (!persoOk) {
             String yesNo;
@@ -71,7 +85,6 @@ public class Menu {
             }
         }
         this.clearConsole();
-        this.menuPrincipal();
     }
 
     public void menuPrincipal() {
@@ -96,17 +109,17 @@ public class Menu {
                         if (restarting == "y"){
                             this.inMenu = false;
                             this.gameStarted = true;
-                            game.startGame();
+                            board.creatBoardGame();
                         }
                     } else {
                         this.inMenu = false;
                         this.gameStarted = true;
-                        game.startGame();
+                        board.creatBoardGame();
                     }
                     break;
     
                     case "P":
-                    System.out.println(game.getHero());
+                    System.out.println(game.getHeroStuffed());
                     break;
     
                 
@@ -119,7 +132,7 @@ public class Menu {
                         this.game.setNewUserName(edit);
                         this.game.setNewHeroName(edit);
                     } else if ( edit.equals("2") ){
-                        System.out.println( "En cours de création => retour au menu précédent." );
+                        this.weaponChoice();
                     } else {
                         System.out.println( "Erreur dans les choix, retour au menu précédent." );
                     }
@@ -145,12 +158,16 @@ public class Menu {
     
     public void gameStarted() {
         int position = board.getPosition();
-        if (position == 0){
+        if (position == 0 ){
             System.out.println( "Tu es maintenant en jeu" );
+            System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
+        } else if (position > 62){
+            System.out.println( "Tu es sur la dernière case" );
+            System.out.println( "\"M\" - Menu principal" );
         } else {
             System.out.println( "Tu continues d'avancer ?" );
+            System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
         }
-        System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
         choice = sc.nextLine();
         this.clearConsole();
         switch (choice){
@@ -159,7 +176,7 @@ public class Menu {
                 System.out.println("Resultat du dé : "+this.dice.getDice());
                 board.setNewPosition(this.dice.getDice());
                 System.out.println("Tu est maintenant à l'étage : "+board.getPosition());
-                System.out.println("Info case : "+board.getInfo());
+                System.out.println("Info case : "+board.getInfoBoard());
                 this.gameStarted();
                 break;
 
@@ -170,7 +187,7 @@ public class Menu {
             default:
                 this.clearConsole();
                 System.out.println("Choix incorrect");
-                gameStarted();
+                this.gameStarted();
                 break;
         };
     } 

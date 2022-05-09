@@ -9,6 +9,7 @@ public class Main {
         menu.nameChoice();
         menu.heroChoice();
         menu.confirmChoice();
+        menu.weaponChoice();
         menu.gameStarted();
     }
 }

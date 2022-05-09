@@ -1,17 +1,17 @@
 package com.dd.heros;
 // import com.dd.attack.Spell;
 
-public class Wizzard extends Hero {
+public class Voorhees extends Hero {
 
-    public Wizzard(){
+    public Voorhees(){
         super("Default", 5, 5);
     };
 
-    public Wizzard(String name){
+    public Voorhees(String name){
         super(name, 3, 8);
     };
 
-    public Wizzard(String name, int hp, int damages){
+    public Voorhees(String name, int hp, int damages){
         super(name, hp, damages);
     };
 }

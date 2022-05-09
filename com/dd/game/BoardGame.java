@@ -4,11 +4,15 @@ import java.lang.reflect.Array;
 import java.util.Random;
 
 public class BoardGame {
-    int arrSize = 64;
-    int position = 0;
+    int arrSize;
+    int position;
+    int[] board;
 
-    int[] board = (int[])Array.newInstance(
-        int.class, arrSize);
+    public BoardGame(){
+        this.position = 0;
+        this.arrSize = 65;
+        this.board = (int[])Array.newInstance(int.class, arrSize);
+    }
 
     public void creatBoardGame(){
         Array.setInt(this.board, 0, 0);
@@ -24,15 +28,18 @@ public class BoardGame {
     }
 
     public void setNewPosition(int dice){
-        this.position += dice;
+        if (this.position+dice > 64 ){
+            this.position = 64;
+        } else {
+            this.position += dice;
+        }
     }
 
     public Integer getPosition(){
         return this.position;
     }
 
-    public Integer getInfo(){
-        System.out.println(Array.getInt(this.board, this.position));
+    public Integer getInfoBoard() {
         return Array.getInt(this.board, this.position);
     }
 }
