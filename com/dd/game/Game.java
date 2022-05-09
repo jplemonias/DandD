@@ -58,7 +58,7 @@ public class Game {
         return this.perso;
     }
 
-    public Object creatperso(String userPseudo, String typePerso) {
+    public Hero creatPerso(String userPseudo, String typePerso) {
         Random random1 = new Random();
         int nb1 = 5+random1.nextInt(15-5);
         Random random2 = new Random();
@@ -67,12 +67,9 @@ public class Game {
         int nb3 = 8+random3.nextInt(15-8);
 
         if ( typePerso == "Wawa") {
-            Hero wa = new Warrior();
-            this.hero = wa.Hero(userPseudo, nb1, nb1);
-            return hero;
+            return new Warrior(userPseudo, nb1, nb1);
         } else {
-            this.hero = new Hero(userPseudo, nb2, nb3);
-            return hero;
+            return new Wizzard(userPseudo, nb2, nb3);
         }
     }
 }

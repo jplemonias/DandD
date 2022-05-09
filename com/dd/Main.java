@@ -12,6 +12,6 @@ public class Main {
         menu.nameChoice();
         menu.heroChoice();
         menu.confirmChoice();
-        System.out.println(Hero.getPerso());
+        // System.out.println(Hero.getPerso());
     }
 }

@@ -7,19 +7,19 @@ public class Warrior extends Hero {
     private int damages;
     private String attack;
 
-    public void Hero(String name, int hp, int damages){
-        creatWarrior(name, hp, damages);
-    };
+//    public Warrior(String name, int hp, int damages){
+//        creatWarrior(name, hp, damages);
+//    };
 
-    public String getPerso(){
-        return "Mon perso : " + this.name + " " + this.hp + " " + this.damages + " " + this.attack;
-    }
-
-    public void creatWarrior(String name, int hp, int damages){
+    public Warrior(String name, int hp, int damages){
         Weapon attack = new Weapon();
         this.name = name;
         this.hp = hp;
         this.damages = damages;
         this.attack = attack.getName();
     };
+
+    public String getPerso(){
+        return "Mon perso : " + this.name + " " + this.hp + " " + this.damages + " " + this.attack;
+    }
 }

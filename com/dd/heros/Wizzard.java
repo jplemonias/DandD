@@ -7,11 +7,11 @@ public class Wizzard extends Hero {
     private int damages;
     private String attack;
     
-    public void Hero(String name, int hp, int damages){
-        creatWizzard(name, hp, damages);
-    };
+//    public void Hero(String name, int hp, int damages){
+//        creatWizzard(name, hp, damages);
+//    };
 
-    public void creatWizzard(String name, int hp, int damages){
+    public Wizzard(String name, int hp, int damages){
         Spell attack = new Spell();
         this.name = name;
         this.hp = hp;
