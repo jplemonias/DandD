@@ -1,6 +1,8 @@
 package com.dd.attack;
 
-public class Weapon {
+import com.dd.cases.Cases;
+
+public class Weapon extends Cases {
     private String name;
     private Integer damages;
 

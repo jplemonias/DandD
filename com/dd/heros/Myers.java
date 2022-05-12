@@ -1,9 +1,10 @@
 package com.dd.heros;
-// import com.dd.attack.Weapon;
+// import com.dd.Case.attack.Weapon;
 
 public class Myers extends Hero {
 
     public Myers(){
+//        this("default");
         super("Default", 5, 5);
     };
 

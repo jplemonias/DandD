@@ -1,7 +1,8 @@
 package com.dd.game;
 
-import com.dd.attack.*;
 import com.dd.heros.*;
+import com.dd.attack.*;
+import com.dd.menu.Menu;
 
 import java.util.Random;
 
@@ -10,12 +11,17 @@ public class Game {
     String typePerso;
     Hero hero;
     // BoardGame board;
+    // Game game = new Game();
+    Dice dice;
+    BoardGame board;
 
     public Game(){
         this.player = "";
         this.typePerso = "";
         this.hero = null;
         // this.board = null;
+        this.dice = new Dice();
+        this.board = new BoardGame();
     }
 
     public void setNewUserName(String name) {
@@ -82,7 +88,19 @@ public class Game {
                 }
                 break;
         }
-        this.hero.setWeapon(attack);
+        // this.hero.setWeapon(attack);
         System.out.println(this.hero.getWeapon());
+    }
+
+    public void creatBoard(){
+        this.board.creatBoardGame();
+    }
+    public int getPosition(){
+        return this.board.getPosition();
+    }
+
+    public int launchDice(){
+        this.dice.launchDice();
+        return this.dice.getDice();
     }
 }

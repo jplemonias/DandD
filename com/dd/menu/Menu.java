@@ -8,8 +8,8 @@ public class Menu {
     String choice;
     Scanner sc = new Scanner(System.in);
     Game game = new Game();
-    Dice dice = new Dice();
-    BoardGame board = new BoardGame();
+//    Dice dice = new Dice();
+//    BoardGame board = new BoardGame();
 
     Boolean persoOk = false;
     Boolean firstStartGame = true;
@@ -27,7 +27,9 @@ public class Menu {
             System.out.println("Quel sera le nom de ton personnage ?");
         }
         choice = sc.nextLine();
+
         game.setNewUserName(choice);
+
         this.clearConsole();
     }
 
@@ -109,12 +111,14 @@ public class Menu {
                         if (restarting == "y"){
                             this.inMenu = false;
                             this.gameStarted = true;
-                            board.creatBoardGame();
+                            game.creatBoard();
+                            //board.creatCases();
                         }
                     } else {
                         this.inMenu = false;
                         this.gameStarted = true;
-                        board.creatBoardGame();
+                        game.creatBoard();
+                        //board.creatCases();
                     }
                     break;
     
@@ -139,7 +143,7 @@ public class Menu {
                     break;
     
                 case "Q":
-                    System.out.println("Pffff espèce de fiotte!!!");
+                    System.out.println("Pffff espèce de peureux!!!");
                     System.exit(0);
                     break;
     
@@ -155,9 +159,9 @@ public class Menu {
         }
         this.clearConsole();
     }
-    
+
     public void gameStarted() {
-        int position = board.getPosition();
+        int position = game.getPosition();
         if (position == 0 ){
             System.out.println( "Tu es maintenant en jeu" );
             System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
@@ -172,11 +176,11 @@ public class Menu {
         this.clearConsole();
         switch (choice){
             case "1":
-                dice.launchDice();
-                System.out.println("Resultat du dé : "+this.dice.getDice());
-                board.setNewPosition(this.dice.getDice());
-                System.out.println("Tu est maintenant à l'étage : "+board.getPosition());
-                System.out.println("Info case : "+board.getInfoBoard());
+                int dice = game.launchDice();
+                System.out.println("Resultat du dé : "+dice);
+                // board.setNewPosition(this.dice.getDice());
+                System.out.println("Tu est maintenant à l'étage : "+game.getPosition());
+                // System.out.println("Info case : "+board.getInfoBoard());
                 this.gameStarted();
                 break;
 
@@ -190,5 +194,9 @@ public class Menu {
                 this.gameStarted();
                 break;
         };
-    } 
+    }
+
+    public void creatBoard() {
+        // board.creatCases();
+    }
 }

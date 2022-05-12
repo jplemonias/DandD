@@ -8,6 +8,13 @@ public class Dice {
     public Dice(){
         this.dice = 0;
     }
+    public void setDice(int dice){
+        this.dice = dice;
+    }
+
+    public int getDice(){
+        return this.dice;
+    }
 
     public void launchDice(){
         Random random = new Random();
@@ -15,8 +22,8 @@ public class Dice {
         this.dice = result;
     }
 
-    public Integer getDice(){
-        return this.dice;
-    }
+    //public Integer getDice(){
+    //    return this.dice;
+    //}
 
 }

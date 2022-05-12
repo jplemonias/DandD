@@ -1,8 +1,9 @@
 package com.dd.heros;
 
 import com.dd.attack.*;
+import com.dd.cases.Cases;
 
-public class Hero {
+public abstract class Hero extends Cases {
     private String name;
     private int hp;
     private int damages;
@@ -10,9 +11,7 @@ public class Hero {
     private Weapon attack;
 
     public Hero(){
-        this.name = "Default";
-        this.hp = 5;
-        this.damages = 10;
+        this("Default", 5, 10);
         this.attack = new KitchenKnife();
     }
 

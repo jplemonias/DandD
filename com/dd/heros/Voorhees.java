@@ -1,5 +1,5 @@
 package com.dd.heros;
-// import com.dd.attack.Spell;
+// import com.dd.Case.attack.Spell;
 
 public class Voorhees extends Hero {
 
