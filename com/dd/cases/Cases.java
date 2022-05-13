@@ -5,4 +5,6 @@ public abstract class Cases {
     public Cases(){
 
     }
+    public abstract String getName();
+    public abstract Integer getDamages();
 }

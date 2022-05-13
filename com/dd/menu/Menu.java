@@ -37,11 +37,7 @@ public class Menu {
         System.out.println("Tu veux play ? \n1 - Michael Myers\nDmg : 5-15 HP : 5-15\nAttack :\nun couteau de cuisine +5\nune batte de baseball +3\n\n2 - Jason Voorhess\nDmg : 3-6 HP : 8-15\nAttack :\nune tronçonneuse +7\nune hache +2");
         choice = sc.nextLine();
         switch (choice){
-            case "1":
-                game.creatPerso(game.getUserName(), choice);
-                break;
-
-            case "2":
+            case "1", "2":
                 game.creatPerso(game.getUserName(), choice);
                 break;
 
@@ -67,7 +63,7 @@ public class Menu {
             System.out.println("Choix incorrect");
             weaponChoice();
         }
-        this.game.setWeapon(sc.nextLine(), this.game.getTypePerso());
+        // this.game.setWeapon(sc.nextLine(), this.game.getTypePerso());
         this.menuPrincipal();
     }
 
@@ -164,13 +160,13 @@ public class Menu {
         int position = game.getPosition();
         if (position == 0 ){
             System.out.println( "Tu es maintenant en jeu" );
-            System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
-        } else if (position > 62){
+            System.out.println( "\"1\" - lancer le dé\n\"M\" - Menu principal" );
+        } else if (position > 63){
             System.out.println( "Tu es sur la dernière case" );
             System.out.println( "\"M\" - Menu principal" );
         } else {
             System.out.println( "Tu continues d'avancer ?" );
-            System.out.println( "\"1\" - lacer le dé\n\"M\" - Menu principal" );
+            System.out.println( "\"1\" - lancer le dé\n\"M\" - Menu principal" );
         }
         choice = sc.nextLine();
         this.clearConsole();
@@ -178,10 +174,12 @@ public class Menu {
             case "1":
                 int dice = game.launchDice();
                 System.out.println("Resultat du dé : "+dice);
-                // board.setNewPosition(this.dice.getDice());
+                game.setPosition(dice);
                 System.out.println("Tu est maintenant à l'étage : "+game.getPosition());
-                // System.out.println("Info case : "+board.getInfoBoard());
-                this.gameStarted();
+                this.eventCell(game.infoCase());
+                if (position < 63) {
+                    this.gameStarted();
+                }
                 break;
 
             case "M":
@@ -195,8 +193,33 @@ public class Menu {
                 break;
         };
     }
+    public void eventCell(String info){
+        System.out.println(info);
+        switch (info){
+            case "Weapon":
+                game.equipWeapoun();
+                break;
+
+            case "Hero":
+                game.fight();
+                break;
+
+            case "Potion":
+                game.heal();
+                break;
+
+            default:
+                if (game.getPosition() < 64) {
+                    System.out.println("Tu as de la chance...\nOu pas case vide :P");
+                } else {
+                    System.out.println("WouHouuu tu as gagné...");
+                    this.gameStarted = false;
+                }
+                break;
+        }
+    };
 
     public void creatBoard() {
-        // board.creatCases();
+        game.creatBoard();
     }
 }

@@ -1,24 +1,24 @@
 package com.dd.heros;
 
 import com.dd.attack.*;
-import com.dd.cases.Cases;
+import com.dd.cases.*;
 
-public abstract class Hero extends Cases {
+public abstract class Hero extends com.dd.cases.Cases {
     private String name;
     private int hp;
     private int damages;
 
-    private Weapon attack;
+    private Cases attack;
 
     public Hero(){
-        this("Default", 5, 10);
-        this.attack = new KitchenKnife();
+        this("Default", 5, 10, new KitchenKnife());
     }
 
-    public Hero(String name, int hp, int damages){
+    public Hero(String name, int hp, int damages, Weapon weapon){
         this.name = name;
         this.hp = hp;
         this.damages = damages;
+        this.attack = weapon;
     }
 
     public String setName(String name){
@@ -26,8 +26,12 @@ public abstract class Hero extends Cases {
         return this.name;
     }
 
-    public void setWeapon(Weapon weapon){
+    public void setWeapon(Cases weapon){
         this.attack = weapon;
+    }
+
+    public Cases getWeapon(){
+        return this.attack;
     }
 
     public String getName(){
@@ -48,9 +52,9 @@ public abstract class Hero extends Cases {
         return rtn += "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
 
-    public String getWeapon(){
-        return "ton arme est :\n"+this.attack.getWeaponType()+" (dmg +"+this.attack.getDamages()+")";
-    }
+//    public String getWeapon(){
+//        return "ton arme est :\n"+this.attack.getWeaponType()+" (dmg +"+this.attack.getDamages()+")";
+//    }
 
     public String getPersoStuffed(){
         String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";

@@ -4,7 +4,7 @@ import com.dd.cases.Cases;
 
 public class Weapon extends Cases {
     private String name;
-    private Integer damages;
+    private int damages;
 
     public Weapon(){
         this.name = "Default";

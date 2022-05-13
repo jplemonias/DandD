@@ -5,6 +5,7 @@ import com.dd.cases.Cases;
 import com.dd.heros.Flower;
 import com.dd.heros.KawaiiCat;
 import com.dd.heros.Unicorn;
+import com.dd.potion.*;
 
 import java.lang.reflect.Array;
 
@@ -12,13 +13,13 @@ public class BoardGame {
     int arrSize;
     int position;
     // int[] board;
-    Cases[] boradTest;
+    Cases[] borad;
 
     public BoardGame(){
         this.position = 0;
         this.arrSize = 65;
         // this.board = (int[])Array.newInstance(int.class, arrSize);
-        this.boradTest = (Cases[])Array.newInstance(Cases.class, arrSize);
+        this.borad = (Cases[])Array.newInstance(Cases.class, arrSize);
     }
 
 //    public void creatBoardGame(){
@@ -43,10 +44,10 @@ public class BoardGame {
 //        Random random1 = new Random();
 //        int result = random1.nextInt(3);
 //        Array.setInt(this.board, i, result+1);
-        for (int i = 0; i < this.boradTest.length-1; i++) {
+        for (int i = 0; i < this.borad.length-1; i++) {
             creatCase(i);
             // Case case = new Case();
-            System.out.println("Element " + i + " = " + Array.get(this.boradTest, i));
+            //System.out.println("Element " + i + " = " + Array.get(this.boradTest, i));
         }
         // System.out.println("Element " + (arrSize-1) + " = " + Array.getInt(this.board, arrSize-1));
     }
@@ -64,49 +65,52 @@ public class BoardGame {
             case 45, 52, 65, 62->{
                 // Unicorn / Dragon
                 newCase = new Unicorn();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 10, 20, 25, 32, 35, 36, 37, 40, 44, 47->{
                 // KawaiiCat / Sorcier
                 newCase = new KawaiiCat();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 3, 6, 9, 12, 15, 18, 21, 24, 27, 30->{
                 // Flower / Gobelin
                 newCase = new Flower();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 2, 11, 5, 22, 38->{
                 // baseball bat / Massue
                 newCase = new BaseballBat();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 19, 26, 42, 53->{
                 // Kitchen knife / Epée
                 newCase = new KitchenKnife();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 1, 4, 8, 17, 23->{
                 // Chain saw / Spell éclair
                 newCase = new ChainSaw();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 48, 49->{
                 // Axe / Spell boule de feu
                 newCase = new Axe();
-                Array.set(this.boradTest, i, newCase);
+                Array.set(this.borad, i, newCase);
             }
             case 7, 13, 31, 33, 39, 43->{
                 // Popo
-                // Array.setInt(this.board, i, 8);
+                newCase = new LittlePopo();
+                Array.set(this.borad, i, newCase);
             }
             case 28, 41->{
                 // Grande Popo
-                // Array.setInt(this.board, i, 9);
+                newCase = new MiddlePopo();
+                Array.set(this.borad, i, newCase);
             }
             default ->{
                 // vide
-                // Array.setInt(this.board, i, 0);
+                newCase = null;
+                Array.set(this.borad, i, newCase);
             }
         }
         /* Dégueu...
@@ -140,4 +144,7 @@ public class BoardGame {
     // public Integer getInfoBoard() {
         // return Array.getInt(this.board, this.position);
     // }
+    public Cases wathsInsideCell(){
+        return (Cases)Array.get(this.borad, this.position);
+    }
 }
