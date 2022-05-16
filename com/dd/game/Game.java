@@ -1,6 +1,7 @@
 package com.dd.game;
 
 import com.dd.cases.Cases;
+import com.dd.enemies.*;
 import com.dd.heros.*;
 import com.dd.attack.*;
 import com.dd.potion.*;
@@ -110,11 +111,11 @@ public class Game {
             System.out.println("~~ augmente de +"+((Weapon) inCell).getDamages()+" ~~");
             return "Weapon";
         }
-        if ( inCell instanceof Hero) {
+        if ( inCell instanceof Enemies) {
             System.out.println("\nTu es tombé sur un.e : ");
             System.out.println("~~ "+((Cases) inCell).getName()+" ~~");
             System.out.println("Sa puissane d'attaque : ");
-            System.out.println("~~ est de "+((Hero) inCell).getDamages()+" ~~");
+            System.out.println("~~ est de "+((Enemies) inCell).getDamages()+" ~~");
             return "Hero";
         }
         if ( inCell instanceof Potion) {
@@ -191,7 +192,7 @@ public class Game {
             e.printStackTrace();
         }
         int player = fighters.indexOf(1);
-        Hero ennemi = (Hero)board.wathsInsideCell();
+        Enemies ennemi = (Enemies)board.wathsInsideCell();
         
         if (player == 0) {
             
@@ -210,7 +211,7 @@ public class Game {
         } else {
             // palyer fight
             System.out.println("L'énnemi t'attaque,");
-            if (this.hero.getHp()-ennemi.getDamages() < 1) {
+            if (this.hero.getHp() - ennemi.getDamages() < 1) {
                 this.hero.setHp(0);
                 System.out.println("Tu es Mooooooort");
                 //gameOver();

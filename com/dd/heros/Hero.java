@@ -1,9 +1,8 @@
 package com.dd.heros;
 
 import com.dd.attack.*;
-import com.dd.cases.*;
 
-public abstract class Hero extends Cases {
+public abstract class Hero {
     private String name;
     private int hp;
     private int damages;

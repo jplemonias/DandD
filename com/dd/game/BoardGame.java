@@ -2,9 +2,7 @@ package com.dd.game;
 
 import com.dd.attack.*;
 import com.dd.cases.Cases;
-import com.dd.heros.Flower;
-import com.dd.heros.KawaiiCat;
-import com.dd.heros.Unicorn;
+import com.dd.enemies.*;
 import com.dd.potion.*;
 
 import java.lang.reflect.Array;
@@ -31,6 +29,7 @@ public class BoardGame {
     public void creatBoardGame(){;
         for (int i = 0; i < this.borad.length-1; i++) {
             creatCase(i);
+            System.out.println(Array.get(this.borad, i));
         }
     }
     /**
