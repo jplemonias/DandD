@@ -1,6 +1,6 @@
 package com.dd.heros;
 
-import com.dd.attack.*;
+// import com.dd.attack.*;
 
 public class Myers extends Hero {
 

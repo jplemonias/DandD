@@ -3,15 +3,15 @@ package com.dd.heros;
 import com.dd.attack.*;
 import com.dd.cases.*;
 
-public abstract class Hero extends com.dd.cases.Cases {
+public abstract class Hero extends Cases {
     private String name;
     private int hp;
     private int damages;
 
-    private Cases attack;
+    private Weapon attack;
 
     public Hero(){
-        this("Default", 5, 10, new KitchenKnife());
+        this("Default", 5, 10, null);
     }
 
     public Hero(String name, int hp, int damages, Weapon weapon){
@@ -21,44 +21,69 @@ public abstract class Hero extends com.dd.cases.Cases {
         this.attack = weapon;
     }
 
-    public String setName(String name){
+    public void setName(String name){
         this.name = name;
-        return this.name;
     }
 
-    public void setWeapon(Cases weapon){
-        this.attack = weapon;
+    public void setHp(int hp){
+        if (hp > 15) {
+            System.out.println("HP au max.");
+            this.hp = 15;
+        } else {
+            this.hp = hp;
+        }
     }
 
-    public Cases getWeapon(){
+    public void setWeapon(Weapon weapon, Hero hero){
+        if (hero instanceof Myers) {
+            if (weapon instanceof KitchenKnife || weapon instanceof BaseballBat ) {
+                this.attack = weapon;
+            }
+        }
+        if (hero instanceof Voorhees) {
+            if (weapon instanceof ChainSaw || weapon instanceof Axe ) {
+                this.attack = weapon;
+            }
+        }
+    }
+
+    public Weapon getWeapon(){
         return this.attack;
+    }
+
+    public int getWeaponDamages(){
+        return this.attack.getDamages();
     }
 
     public String getName(){
         return this.name;
     }
 
-    public Integer getHp(){
+    public int getHp(){
         return this.hp;
     }
 
-    public Integer getDamages(){
-        return this.damages;
+    public int getDamages(){
+        if (this.attack == null) {
+            return this.damages;
+        }
+        return this.damages+this.attack.getDamages();
     }
 
     public String getPerso(){
         String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";
-        rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : " + this.damages/* + " " + this.attack*/;
+        rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : " + this.damages;
         return rtn += "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
 
-//    public String getWeapon(){
-//        return "ton arme est :\n"+this.attack.getWeaponType()+" (dmg +"+this.attack.getDamages()+")";
-//    }
+    //    public String getWeapon(){
+    //        return "ton arme est :\n"+this.attack.getWeaponType()+" (dmg +"+this.attack.getDamages()+")";
+    //    }
 
     public String getPersoStuffed(){
         String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";
-        rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : " + (this.damages+this.attack.getDamages())+"\n(dmg +"+this.attack.getDamages()+" "+this.attack.getName()+")";
+        rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : "+(this.damages+this.attack.getDamages());
+        rtn += "\n(dmg +"+this.attack.getDamages()+" "+this.attack.getName()+")";
         return rtn += "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
 }

@@ -20,7 +20,7 @@ public class Weapon extends Cases {
         return this.name;
     }
 
-    public Integer getDamages(){
+    public int getDamages(){
         return this.damages;
     }
 

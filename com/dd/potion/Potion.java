@@ -7,8 +7,7 @@ public abstract class Potion extends Cases {
     private int hp;
 
     public Potion(){
-        this.name = "Default";
-        this.hp =  1;
+        this("Default", 1);
     }
 
     public Potion(String name, int hp){
@@ -20,7 +19,7 @@ public abstract class Potion extends Cases {
         return this.name;
     }
 
-    public Integer getDamages(){
+    public int getHeal(){
         return this.hp;
     }
 }

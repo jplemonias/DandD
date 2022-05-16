@@ -3,7 +3,7 @@ package com.dd.potion;
 public class FullPopo extends Potion {
 
     public FullPopo(){
-        super("full potion", 5);
+        this("full potion", 50);
     }
 
     public FullPopo(String name, int hp){

@@ -6,5 +6,5 @@ public abstract class Cases {
 
     }
     public abstract String getName();
-    public abstract Integer getDamages();
+    //public abstract int getDamages();
 }
