@@ -1,8 +1,9 @@
 package com.dd.enemies;
 
 import com.dd.cases.Cases;
+import com.dd.inter.Inter;
 
-public class Enemies extends Cases {
+public class Enemies extends Cases implements Inter {
     private String name;
     private int hp;
     private int damages;
@@ -33,5 +34,6 @@ public class Enemies extends Cases {
         return this.hp;
     }
 
+    @Override
     public int getDamages(){ return this.damages; }
 }

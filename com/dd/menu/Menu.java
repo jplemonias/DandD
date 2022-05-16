@@ -7,16 +7,16 @@ import com.dd.exceptions.*;
 import java.util.Scanner;
 
 public class Menu {
-    String choice;
-    Scanner sc = new Scanner(System.in);
-    Game game = new Game();
+    private String choice;
+    private Scanner sc = new Scanner(System.in);
+    private Game game = new Game();
 //    Dice dice = new Dice();
 //    BoardGame board = new BoardGame();
 
-    Boolean persoOk = false;
-    Boolean firstStartGame = true;
-    Boolean inMenu = false;
-    Boolean gameStarted = false;
+    private Boolean persoOk = false;
+    private Boolean firstStartGame = true;
+    private Boolean inMenu = false;
+    private Boolean gameStarted = false;
 
     public void clearConsole() {
         System.out.print("\033[H\033[2J");

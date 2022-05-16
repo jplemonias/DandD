@@ -10,19 +10,14 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Game {
-    String player;
-    String typePerso;
-    Hero hero;
-    // BoardGame board;
-    // Game game = new Game();
-    Dice dice;
-    BoardGame board;
+    private String player;
+    private Hero hero;
+    private Dice dice;
+    private BoardGame board;
 
     public Game(){
         this.player = "";
-        // this.typePerso = "";
         this.hero = null;
-        // this.board = null;
         this.dice = new Dice();
         this.board = new BoardGame();
     }
@@ -39,7 +34,6 @@ public class Game {
 
     public String getHero(){ return this.hero.getPerso(); }
 
-    public String getTypePerso(){ return this.typePerso; }
 
     public String getHeroStuffed(){ return this.hero.getPersoStuffed(); }
 

@@ -1,8 +1,9 @@
 package com.dd.attack;
 
 import com.dd.cases.Cases;
+import com.dd.inter.Inter;
 
-public class Weapon extends Cases {
+public class Weapon extends Cases implements Inter {
     private String name;
     private int damages;
 
@@ -20,6 +21,7 @@ public class Weapon extends Cases {
         return this.name;
     }
 
+    @Override
     public int getDamages(){
         return this.damages;
     }

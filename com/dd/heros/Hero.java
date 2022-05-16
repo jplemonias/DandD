@@ -1,8 +1,9 @@
 package com.dd.heros;
 
 import com.dd.attack.*;
+import com.dd.inter.Inter;
 
-public abstract class Hero {
+public abstract class Hero implements Inter {
     private String name;
     private int hp;
     private int damages;
@@ -62,6 +63,7 @@ public abstract class Hero {
         return this.hp;
     }
 
+    @Override
     public int getDamages(){
         if (this.attack == null) {
             return this.damages;
