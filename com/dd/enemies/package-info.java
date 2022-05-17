@@ -1,5 +1,5 @@
 /**
  * <b>Contains ennemies's class</b>
- * extends Cases
+ * <i>extends</i> Cases <i>implements</i> Inter
  */
 package com.dd.enemies;

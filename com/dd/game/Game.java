@@ -8,7 +8,9 @@ import com.dd.potion.*;
 
 import java.util.Random;
 import java.util.ArrayList;
-
+/**
+ * <b>progress game</b>
+ */
 public class Game {
     private String player;
     private Hero hero;

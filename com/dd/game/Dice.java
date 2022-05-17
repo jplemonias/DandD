@@ -1,10 +1,11 @@
 package com.dd.game;
 
 import java.util.Random;
-
+/**
+ * <b>dice action</b>
+ */
 public class Dice {
     private int dice;
-
     public Dice(){
         this.dice = 0;
     }
@@ -25,7 +26,7 @@ public class Dice {
     }
     /**
     * random from 1 to 6.
-    * Creates a random from 1 to 6 which will be the new dice value.
+    * Creates a random and attribute new dice value.
     * @see #setDice(int)
     */
     public void launchDice(){

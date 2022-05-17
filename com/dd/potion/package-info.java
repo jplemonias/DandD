@@ -1,5 +1,5 @@
 /**
  * <b>Contains potions's class</b>
- * extends Cases
+ * <i>extends Cases</i>
  */
 package com.dd.potion;

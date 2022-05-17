@@ -1,11 +1,15 @@
 package com.dd;
 
 import com.dd.menu.Menu;
+import com.dd.db.Db;
 
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
         menu.clearConsole();
+        Db db = new Db();
+        db.runDataBase();
+        //System.out.println();
         welcome();
         menu.nameChoice();
         menu.heroChoice();

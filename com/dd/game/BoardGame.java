@@ -7,8 +7,7 @@ import com.dd.potion.*;
 
 import java.lang.reflect.Array;
 /**
- * <b>creat and containt a board game</b>
- *
+ * <b>Creat and containt a board game</b>
  */
 public class BoardGame {
     int arrSize;
@@ -16,7 +15,10 @@ public class BoardGame {
     // int[] board;
     Cases[] borad;
     /**
-    * Constructeur #BoardGame()
+    * A constructor without parameters
+    * <u>attibute</u> the player's position to zero at position,
+    * the size to the board game ( here 65 ) at arrSize,
+    * creat a array in terms of array's size.
     */
     public BoardGame(){
         this.position = 0;
