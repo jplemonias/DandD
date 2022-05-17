@@ -6,7 +6,10 @@ import com.dd.enemies.*;
 import com.dd.potion.*;
 
 import java.lang.reflect.Array;
-
+/**
+ * <b>creat and containt a board game</b>
+ *
+ */
 public class BoardGame {
     int arrSize;
     int position;

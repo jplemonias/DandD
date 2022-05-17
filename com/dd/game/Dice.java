@@ -9,23 +9,23 @@ public class Dice {
         this.dice = 0;
     }
     /**
-    * Récupère le résultat du lancé de dé.
-    * null / Weapon / Hero / Potion
-    * @param dice résultat du lancé de dé.
+    * Set the value of the dice roll.
+    * Retrieves the result of the dice roll in param and set this to dice attributs.
+    * @param dice the value of the dice roll.
     */
     public void setDice(int dice){
         this.dice = dice;
     }
     /**
-    * Récupère la valeur du dé.
-    * @return La valeur du dé.
+    * Get the value of the dice.
+    * @return the value of the dice.
     */
     public int getDice(){
         return this.dice;
     }
     /**
-    * Attribu 1...6 au lancé de dé.
-    * Créé un random de 1 à 6 qui sera la nouvelle valeur du dé.
+    * random from 1 to 6.
+    * Creates a random from 1 to 6 which will be the new dice value.
     * @see #setDice(int)
     */
     public void launchDice(){
