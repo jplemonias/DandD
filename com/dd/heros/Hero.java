@@ -11,7 +11,10 @@ public abstract class Hero implements Inter {
     private Weapon attack;
 
     public Hero(){
-        this("Default", 5, 10, null);
+        this("Default");
+    }
+    public Hero(String name){
+        this(name, 5, 10, null);
     }
 
     public Hero(String name, int hp, int damages, Weapon weapon){
@@ -71,7 +74,7 @@ public abstract class Hero implements Inter {
         return this.damages+this.attack.getDamages();
     }
 
-    public String getPerso(){
+    public String infoPerso(){
         String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";
         rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : " + this.damages;
         return rtn += "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
@@ -81,7 +84,7 @@ public abstract class Hero implements Inter {
     //        return "ton arme est :\n"+this.attack.getWeaponType()+" (dmg +"+this.attack.getDamages()+")";
     //    }
 
-    public String getPersoStuffed(){
+    public String infoPersoStuffed(){
         String rtn = "~~~~~~~~~~ Ton perso ~~~~~~~~~\n";
         rtn += "Name : " + this.name + "\nHealth points : " + this.hp + "\nDamages : "+(this.damages+this.attack.getDamages());
         rtn += "\n(dmg +"+this.attack.getDamages()+" "+this.attack.getName()+")";

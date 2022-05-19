@@ -169,7 +169,7 @@ public class Menu {
         this.clearConsole();
     }
 
-    public void restart() {
+    private void restart() {
         this.inMenu = false;
         this.gameStarted = false;
         this.persoOk = false;
@@ -221,7 +221,7 @@ public class Menu {
             };
         }
     }
-    public void eventCell(String info){
+    private void eventCell(String info){
         // System.out.println(info);
         switch (info){
             case "Weapon":

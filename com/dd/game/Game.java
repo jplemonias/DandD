@@ -34,10 +34,18 @@ public class Game {
         this.hero.setName(name);
     }
 
-    public String getHero(){ return this.hero.getPerso(); }
+    public String getHero(){ return this.hero.infoPerso(); }
 
 
-    public String getHeroStuffed(){ return this.hero.getPersoStuffed(); }
+    public String getHeroStuffed(){ return this.hero.infoPersoStuffed(); }
+
+    public void setPosition(int dice){
+        this.board.setNewPosition(dice);
+    }
+
+    public int getPosition(){
+        return this.board.getPosition();
+    }
 
 
     public void creatPerso(String userPseudo, String typePerso) {
@@ -85,12 +93,6 @@ public class Game {
 
     public void creatBoard(){
         this.board.creatBoardGame();
-    }
-    public void setPosition(int dice){
-        this.board.setNewPosition(dice);
-    }
-    public int getPosition(){
-        return this.board.getPosition();
     }
 
     public int launchDice(){
@@ -222,7 +224,7 @@ public class Game {
         }
     }
 
-    public boolean whoIsFirstPlayer() {
+    private boolean whoIsFirstPlayer() {
         Random random = new Random();
         if (random.nextInt(2) == 1) {
             return true;

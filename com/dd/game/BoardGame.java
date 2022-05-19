@@ -10,10 +10,10 @@ import java.lang.reflect.Array;
  * <b>Creat and containt a board game</b>
  */
 public class BoardGame {
-    int arrSize;
-    int position;
+    private int arrSize;
+    private int position;
     // int[] board;
-    Cases[] borad;
+    private Cases[] borad;
     /**
     * A constructor without parameters
     * <u>attibute</u> the player's position to zero at position,
@@ -25,6 +25,27 @@ public class BoardGame {
         this.arrSize = 65;
         // this.board = (int[])Array.newInstance(int.class, arrSize);
         this.borad = (Cases[])Array.newInstance(Cases.class, arrSize);
+    }
+    /**
+     * Edite la nouvelle position du joueur.
+     * Tan que la valeur de la nouvelle position est infèrieur à 64
+     * la nouvelle position est égale à l'ancienne position plus la valeur du dé
+     * si non le joueur arrive sur la case final.
+     * @param dice valeur du dés
+     */
+    public void setNewPosition(int dice){
+        if (this.position+dice > 64 ){
+            this.position = 64;
+        } else {
+            this.position += dice;
+        }
+    }
+    /**
+     * Récupère la position du joueur.
+     * @return La position du joueur.
+     */
+    public Integer getPosition(){
+        return this.position;
     }
     /**
     * Boucle sur la longueur du tableau.
@@ -42,7 +63,7 @@ public class BoardGame {
     * null / Weapon / Hero / Potion
     * @param i numéro de la case
     */
-    public void creatCase(int i){
+    private void creatCase(int i){
         Cases newCase;
         switch (i) {
             case 45, 52, 65, 62->{
@@ -96,27 +117,6 @@ public class BoardGame {
                 Array.set(this.borad, i, newCase);
             }
         }
-    }
-    /**
-    * Edite la nouvelle position du joueur.
-    * Tan que la valeur de la nouvelle position est infèrieur à 64
-    * la nouvelle position est égale à l'ancienne position plus la valeur du dé
-    * si non le joueur arrive sur la case final.
-    * @param dice valeur du dés
-    */
-    public void setNewPosition(int dice){
-        if (this.position+dice > 64 ){
-            this.position = 64;
-        } else {
-            this.position += dice;
-        }
-    }
-    /**
-    * Récupère la position du joueur.
-    * @return La position du joueur.
-    */
-    public Integer getPosition(){
-        return this.position;
     }
     /**
     * Récupère ce qu'il y a dans la case.

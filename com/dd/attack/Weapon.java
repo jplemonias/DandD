@@ -26,7 +26,7 @@ public class Weapon extends Cases implements Inter {
         return this.damages;
     }
 
-    public String getWeaponType(){
-        return this.name;
-    }
+//    public String getWeaponType(){
+//        return this.name;
+//    }
 }
