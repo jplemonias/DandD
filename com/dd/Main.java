@@ -1,15 +1,17 @@
 package com.dd;
 
 import com.dd.menu.Menu;
-import com.dd.db.Db;
+// import com.dd.db.Req;
 
 public class Main {
     public static void main(String[] args) {
+//        Req req = new Req();
+//        req.addEnnemyInEnnemies("Test_1", 1, 2);
+//        req.addEnnemyInEnnemies("Test_2", 1, 2);
+//        req.deleteEnnemyByName("Test_1");
+//        req.getAllEnnemies();
         Menu menu = new Menu();
         menu.clearConsole();
-        Db db = new Db();
-        db.runDataBase();
-        //System.out.println();
         welcome();
         menu.nameChoice();
         menu.heroChoice();
